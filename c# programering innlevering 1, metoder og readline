@@ -1,0 +1,67 @@
+using System;
+
+namespace MetodeInnlevering
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] mineTall = new int[7];
+
+            for (int i = 0; i < mineTall.Length; i++)
+            {
+                mineTall[i] = Convert.ToInt32(Console.ReadLine());
+            }
+               
+            {
+                Console.WriteLine("elementene i arrayet er: ");
+                for (int i = 0; i < mineTall.Length; i++) ;
+            }
+            Console.WriteLine("gjennomsnitt av arrayen:");
+            Console.WriteLine("{0} ", Gjennomsnittarray(mineTall));
+
+            Console.Write("\nSiste tre elemente er: ");
+            Sisteelementer(mineTall);
+
+            Console.Write("\ntre midterste elemente: ");    
+                tremidt(mineTall);
+
+                Console.ReadLine();
+            
+        }
+
+
+        ///metoder
+        ///oppgave 1
+        public static int Gjennomsnittarray(int[] array)
+        {
+            int avg = 0;
+            decimal d;
+            foreach (var i in array)
+            {
+                avg = avg + i / array.Length;
+               
+            }
+            return avg;
+          
+        }
+        /// oppgave 2: 3 siste
+        public static void Sisteelementer(int[] array)
+        {
+            var sistetre = array[^3..];
+            foreach (var item in sistetre)
+            {
+                Console.Write("{0} ",item);
+            }
+        }
+        // oppgave 3: 3 i midten
+        public static void tremidt(int[] array)
+        {
+            int lavmidt = array[array.Length / 2 - 1];
+            int midt = array[array.Length / 2];
+            int høymidt = array[array.Length / 2 + 1];
+
+            Console.Write("{0},{1},{2} ", lavmidt, midt, høymidt);
+        }
+    }
+}
