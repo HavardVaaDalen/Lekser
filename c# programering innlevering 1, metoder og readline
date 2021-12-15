@@ -7,20 +7,28 @@ namespace MetodeInnlevering
         static void Main(string[] args)
         {
             int[] mineTall = new int[7];
-
-            for (int i = 0; i < mineTall.Length; i++)
+            int i;
+          
+                Console.Write("Innlevering i metoder og readline");
+            Console.Write("\n\ngjennomsnitt, tre siste og median nummere :\n");
+            Console.Write("-----------------------------------------\n");
+            Console.Write("Input elementene til arrayet :\n");
+            for (i = 0; i < mineTall.Length; i++)
             {
                 mineTall[i] = Convert.ToInt32(Console.ReadLine());
             }
                
-            {
-                Console.WriteLine("elementene i arrayet er: ");
-                for (int i = 0; i < mineTall.Length; i++) ;
+            
+                Console.Write("elementene i arrayet er: ");
+                for ( i = 0; i < mineTall.Length; i++) 
+            { 
+                Console.Write("{0} ", mineTall[i]);
             }
-            Console.WriteLine("gjennomsnitt av arrayen:");
+
+            Console.Write("\ngjennomsnitt av arrayen: ");
             Console.WriteLine("{0} ", Gjennomsnittarray(mineTall));
 
-            Console.Write("\nSiste tre elemente er: ");
+            Console.Write("Siste tre elemente er: ");
             Sisteelementer(mineTall);
 
             Console.Write("\ntre midterste elemente: ");    
@@ -36,7 +44,6 @@ namespace MetodeInnlevering
         public static int Gjennomsnittarray(int[] array)
         {
             int avg = 0;
-            decimal d;
             foreach (var i in array)
             {
                 avg = avg + i / array.Length;
