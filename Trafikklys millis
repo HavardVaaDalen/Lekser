@@ -1,0 +1,56 @@
+// C++ code
+//
+unsigned long previousMillis=0;
+int green=12;
+int yellow = 11;
+int red= 10;
+unsigned long Redtrigger =0; //interval til rød
+unsigned long Yellowtrigger =5000; //interval til grønn
+unsigned long Greentrigger = 7000;
+unsigned long Yellowtrigger2 = 17000;
+unsigned long Reset = 19000;
+
+
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(green, OUTPUT);
+  pinMode(yellow, OUTPUT);
+  pinMode(red, OUTPUT);
+ 
+}
+
+void loop()
+{
+ unsigned long currentMillis=millis();
+  int Lysteller= currentMillis-previousMillis;
+  
+  if (Lysteller <= Yellowtrigger){
+  digitalWrite(red, HIGH);
+   digitalWrite(yellow, LOW);
+    digitalWrite(green, LOW);}
+  
+  if (Lysteller >= Yellowtrigger&& Lysteller <Greentrigger)
+      {
+  digitalWrite(red, LOW);
+   digitalWrite(yellow, HIGH);
+    digitalWrite(green, LOW);}
+    
+    
+ 
+  if (Lysteller >=Greentrigger && Lysteller <Yellowtrigger2){
+  digitalWrite(red, LOW);
+   digitalWrite(yellow, LOW);
+    digitalWrite(green, HIGH);}
+  
+    
+  if (Lysteller >=Yellowtrigger2){
+  digitalWrite(red, LOW);
+   digitalWrite(yellow, HIGH);
+    digitalWrite(green, LOW);}
+  
+  if (Lysteller >=Reset){
+previousMillis= currentMillis;
+  }
+  }
